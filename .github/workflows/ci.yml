@@ -35,6 +35,13 @@ jobs:
       - name: Lint (ESLint)
         run: npm run lint
 
+      # O Next.js gera tipos de rotas e layouts (como LayoutProps) durante o
+      # build. Numa máquina limpa eles ainda não existem, então é preciso
+      # gerá-los antes de verificar os tipos — senão o tsc falha por falta
+      # de definições que localmente já estavam em .next/types.
+      - name: Gerar tipos de rotas do Next.js
+        run: npx next typegen
+
       - name: Verificação de tipos (TypeScript)
         run: npx tsc --noEmit
 
