@@ -1,0 +1,5 @@
+# tasknotes-cli (tn) — projeto local do repositório paris-group-copilot
+tasks_dir    = "tasks"
+sprint_file  = "tasks/_meta/sprint.md"
+context_file = "tasks/_meta/activeContext.md"
+archive_dir  = "tasks/archive"
