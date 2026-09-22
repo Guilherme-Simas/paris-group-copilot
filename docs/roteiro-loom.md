@@ -1,45 +1,120 @@
-# Roteiro — Demo em vídeo (Loom, 3 minutos)
+# Roteiro do vídeo — o que falar e onde clicar
 
-> ⚠️ Caso de treino: a apresentação é dirigida a investidores fictícios da empresa
-> fictícia Vitalis, para o exercício do Módulo 2.
+Duração alvo: 3 minutos. Leia em voz natural, sem pressa.
 
-Três blocos, com tempo definido. O limite de 3 minutos é regra: demonstrações
-longas perdem atenção.
+---
 
-## Bloco 1 — Contexto de negócio (0:00 – 0:45)
+## PASSO 1 — Abertura (sem mostrar tela) · 0:00 a 0:45
 
-O que dizer, sem abrir código:
+**FALE:**
 
-- Qual problema o produto resolve: em um venture studio, cada produto novo começa
-  com o time remontando enquadramento e hipóteses do zero, porque o aprendizado dos
-  produtos anteriores está espalhado e não é consultável
-- Quem sente essa dor: o product manager, no início de cada MVP
-- O que o produto promete: reduzir o tempo de enquadramento inicial de cerca de
-  8 horas para 2 horas ou menos
+"Essa é a atualização da sprint do Paris Group Copilot.
 
-## Bloco 2 — Demonstração na tela (0:45 – 2:15)
+O problema que o produto resolve é o seguinte: num venture studio, toda vez que
+um produto novo começa, o time refaz o enquadramento e as hipóteses do zero,
+porque o aprendizado dos produtos anteriores está espalhado em várias ferramentas
+e ninguém consegue consultar.
 
-O que mostrar, nesta ordem:
+Quem sente essa dor é o product manager, no começo de cada MVP.
 
-1. `http://localhost:3000/projeto` — a página de Projeto
-2. `http://localhost:3000/hipotese` — a página de Hipótese de Valor
-3. `http://localhost:8000/docs` — o contrato da API, disparando um `POST /projetos`
-   ao vivo e mostrando a resposta
-4. `GET /hipoteses?projeto_id=1` — mostrando que o dado foi realmente gravado no banco
+A promessa do produto é reduzir esse trabalho inicial de cerca de oito horas para
+duas horas ou menos."
 
-Comentar durante a demonstração: o backend roda em container junto de um PostgreSQL,
-e sobe inteiro com um comando só.
+---
 
-## Bloco 3 — Decisões, bloqueios e próximos passos (2:15 – 3:00)
+## PASSO 2 — Página de Projeto · 0:45
 
-- Três decisões da sprint: FastAPI com OpenAPI (e o custo assumido), PostgreSQL por
-  paridade com produção, monorepo para manter contrato e interface no mesmo commit
-- Dois bloqueios: ausência de CI, e a decisão pendente sobre manter ou migrar o backend
-- Próximo passo imediato: configurar o CI
+**CLIQUE:** http://localhost:3000/projeto
 
-## Antes de gravar
+**FALE:**
 
-- Deixar as duas abas já abertas, para não gastar tempo digitando endereço
-- Subir a stack antes: `docker compose up -d` e `npm run dev`
-- O link do vídeo entra em `docs/sprint-update-investidores.md` e na descrição da
-  Pull Request
+"Essa é a página de Projeto, construída em Next.js com TypeScript."
+
+---
+
+## PASSO 3 — Página de Hipótese · 1:00
+
+**CLIQUE:** http://localhost:3000/hipotese
+
+**FALE:**
+
+"E essa é a página de Hipótese de Valor. As duas rotas estão navegáveis."
+
+---
+
+## PASSO 4 — Contrato da API · 1:15
+
+**CLIQUE:** http://localhost:8000/docs
+
+**FALE:**
+
+"Esse é o contrato da API, gerado automaticamente pelo backend. Ele lista os
+endpoints de Projeto e de Hipótese, com o formato de entrada e de saída de cada um."
+
+---
+
+## PASSO 5 — Criar um projeto ao vivo · 1:30
+
+**CLIQUE, nesta ordem, dentro da página que já está aberta:**
+
+1. Na linha verde escrita `POST /projetos`
+2. No botão `Try it out`, no canto direito
+3. No botão azul `Execute`
+
+**FALE enquanto clica:**
+
+"Vou criar um projeto agora, ao vivo, direto pelo contrato."
+
+---
+
+## PASSO 6 — Mostrar o resultado · 1:50
+
+**FALE, apontando para a resposta que apareceu na tela:**
+
+"O dado foi gravado e voltou com identificador e data de criação. O backend roda
+num container junto de um banco PostgreSQL, e a stack inteira sobe com um comando só."
+
+---
+
+## PASSO 7 — Decisões técnicas · 2:15
+
+**FALE (pode voltar a mostrar só o seu rosto ou o documento):**
+
+"Foram três decisões técnicas nesta sprint.
+
+A primeira: o backend foi feito em FastAPI com contrato OpenAPI. Isso diverge do
+padrão da casa, que é TypeScript de ponta a ponta, e o custo dessa escolha está
+documentado — perdemos a verificação automática de tipos entre o frontend e o backend.
+
+A segunda: usamos PostgreSQL desde o ambiente local, em vez de SQLite, para que o
+ambiente de desenvolvimento seja idêntico ao de produção.
+
+A terceira: frontend e backend ficam no mesmo repositório, para que uma mudança de
+contrato seja um commit só, revisado de uma vez."
+
+---
+
+## PASSO 8 — Bloqueios e fechamento · 2:40 a 3:00
+
+**FALE:**
+
+"Existem dois bloqueios ativos.
+
+O primeiro é que o repositório ainda não tem integração contínua, então os Pull
+Requests entram sem verificação automática. São duas horas de trabalho para resolver.
+
+O segundo é a decisão de manter o backend em FastAPI ou migrar para o padrão da
+casa. Essa depende da primeira.
+
+Os dois bloqueios estão comigo.
+
+O próximo passo imediato é configurar a integração contínua. Obrigado."
+
+---
+
+## Checklist antes de apertar o botão de gravar
+
+- [ ] Serviços no ar (banco, API e frontend)
+- [ ] Abas já abertas: `localhost:3000/projeto`, `localhost:3000/hipotese`, `localhost:8000/docs`
+- [ ] Microfone funcionando
+- [ ] Notificações do sistema silenciadas

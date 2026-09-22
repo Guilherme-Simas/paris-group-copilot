@@ -7,7 +7,8 @@
 **Autor:** Guilherme Simas
 **Público:** revisão técnica assíncrona — sem reunião
 **Repositório:** https://github.com/Guilherme-Simas/paris-group-copilot
-**Demo em vídeo (Loom, 3 min):** _a gravar — ver roteiro em `docs/roteiro-loom.md`_
+**Demo em vídeo (3:18):** https://github.com/user-attachments/assets/f0ffa76b-418c-4e00-8281-66e893e2d16c
+**Roteiro da demo:** `docs/roteiro-loom.md`
 
 ---
 
@@ -115,6 +116,5 @@ para medir o impacto da migração com segurança
 |---|---|---|---|
 | 1 | Configurar CI com verificação de tipos e lint a cada Pull Request | Guilherme Simas | 2 horas |
 | 2 | Decidir B2: manter FastAPI ou migrar para tRPC + Drizzle | Guilherme Simas | 1 dia útil |
-| 3 | Gravar a demo em vídeo de 3 minutos e anexar o link a este documento | Guilherme Simas | 30 minutos |
-| 4 | Adicionar testes automatizados dos quatro endpoints da API | Guilherme Simas | 4 horas |
-| 5 | Instrumentar os eventos que medem a hipótese de valor do produto | Guilherme Simas | 1 dia útil |
+| 3 | Adicionar testes automatizados dos quatro endpoints da API | Guilherme Simas | 4 horas |
+| 4 | Instrumentar os eventos que medem a hipótese de valor do produto | Guilherme Simas | 1 dia útil |
