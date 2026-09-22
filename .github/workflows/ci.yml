@@ -1,0 +1,44 @@
+name: CI
+
+# Roda em todo Pull Request aberto contra a main, e também na própria main
+# depois do merge. Nenhum código entra sem passar por estas verificações.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Cancela execuções antigas do mesmo PR quando um commit novo chega,
+# para não gastar tempo verificando código que já foi substituído.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    name: Lint, tipos e build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Preparar o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Lint (ESLint)
+        run: npm run lint
+
+      - name: Verificação de tipos (TypeScript)
+        run: npx tsc --noEmit
+
+      - name: Build de produção (Next.js)
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:8000
