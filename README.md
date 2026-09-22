@@ -38,3 +38,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Documentação
 
 - [Enquadramento do produto](docs/enquadramento.md) — contexto, dor do usuário, hipótese de valor, métrica de validação e fora de escopo.
+- [Arquitetura da stack](docs/arquitetura.md) — justificativa de cada componente (Next.js, FastAPI, PostgreSQL, Docker Compose) pelos critérios de velocidade de MVP e reutilização entre produtos do studio.
